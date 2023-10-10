@@ -6,10 +6,21 @@
     <title>Iframe</title>
 </head>
 <body>
+    <script>
+        function openPopup() {
+            popupWindow = window.open('popup.html', 'Popup', 'width=400,height=200');
+        }
+        function refreshIframe() {
+            const theForm = document.getElementById('iframe-form');
+            theForm.submit();
+        }
+    </script>
     This is inside the iframe.
-    <button id="iframe-button" onclick="window.location.href='./iframe.html'">Click to refresh the iframe via post back.</button>
-    <!-- <form action="./iframe.html" method="get">
-        <input type="submit" value="Click to refresh the iframe via post back.">
-    </form> -->
+    <button id="iframe-button" onclick="openPopup()">
+        Click to open a pop up that will take user upload or input.
+    </button>
+    <form action="./iframe.html" method="get" id="iframe-form" hidden>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>

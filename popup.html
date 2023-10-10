@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+</head>
+<body>
+    <script>
+        function closePopupAndRefreshIframe() {
+            window.close();  // Close the iframe.
+            
+            // Access the parent iframe and refresh it.
+            if (window.opener && !window.opener.closed) {
+                window.opener.refreshIframe();
+            }
+        }
+    </script>
+    <p>I do something, like upload a file or get user input.</p>
+    <button id="popup-button" onclick="closePopupAndRefreshIframe()">
+        Click me to close the popup and refresh the iframe.
+    </button>
+</body>
+</html>
